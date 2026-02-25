@@ -1,24 +1,43 @@
-:root {
-  --primary-color: #6366f1;
-  --secondary-color: #4f46e5;
-  --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  --text-main: #1e293b;
-  --text-muted: #64748b;
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.3);
-  --accent: #f59e0b;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-background-light text-slate-800 font-sans antialiased;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-headings text-slate-900;
+    }
+
+    .dark body {
+        @apply bg-background-dark text-slate-200;
+    }
+
+    .dark h1,
+    .dark h2,
+    .dark h3,
+    .dark h4,
+    .dark h5,
+    .dark h6 {
+        @apply text-white;
+    }
 }
 
-body {
-  margin: 0;
-  font-family: 'Outfit', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: var(--bg-gradient);
-  min-height: 100vh;
-  color: var(--text-main);
-}
+@layer components {
+    .btn-primary {
+        @apply bg-primary text-white px-6 py-2.5 rounded-2xl font-semibold shadow-soft hover:bg-primary-dark transition-all active:scale-95;
+    }
 
-* {
-  box-sizing: border-box;
+    .card {
+        @apply bg-surface-light border border-slate-100 rounded-3xl p-6 shadow-soft transition-all hover:shadow-lg dark:bg-surface-dark dark:border-slate-800;
+    }
 }
